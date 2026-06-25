@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INICIO - Contacto</title>
+    <style>
+        /* 9. VARIABLES CSS (5 declaradas y utilizadas) */
+        :root {
+            --principal: #4287f5;               /* Color Hexadecimal */
+            --secundario: rgb(120, 40, 220);    /* Color RGB */
+            --texto: navy;                      /* Nombre de color clásico */
+            --fondo: #FFFFFF;
+            --borde: #cccccc;
+        }
+
+        /* 12. ESTILOS BÁSICOS */
+        body {
+            margin: 0;
+            font-family: 'Calibri', sans-serif;
+            color: var(--texto);
+            min-height: 100vh;
+            /* 10. GRADIENTE: Aplicado al fondo del sitio (exactamente tus colores) */
+            background: linear-gradient(180deg, #87CEEB 0%, var(--fondo) 100%) no-repeat center center fixed;
+        }
+
+        h1, h2 {
+            text-align: center;
+        }
+
+        /* Encabezado principal adaptado */
+        .header-principal {
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        .logo-img {
+            width: 300px;
+            height: auto;
+            display: block;
+            margin: 0 auto 15px auto;
+        }
+
+        /* Menú de navegación usando listas sin viñetas */
+        .nav-menu ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .nav-menu a {
+            color: var(--texto);
+            text-decoration: none;
+            font-size: 1.3rem;
+            font-weight: bold;
+        }
+
+        /* Contenedor del Formulario (max-width 600px como tu código original) */
+        .main-content {
+            max-width: 600px;
+            margin: 30px auto;
+            padding: 20px;
+        }
+
+        /* 7. Formulario y Fieldset con estilos limpios */
+        form {
+            background-color: rgba(255, 255, 255, 0.6);
+            padding: 20px;
+            border-radius: 8px;
+            border: 1px solid var(--borde);
+        }
+
+        fieldset {
+            border: 2px solid var(--principal);
+            border-radius: 6px;
+            padding: 20px;
+        }
+
+        .form-row {
+            margin-bottom: 15px;
+        }
+
+        .form-row label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .form-row input, .form-row textarea {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid var(--borde);
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        .form-image-box {
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        .form-image-box img {
+            border-radius: 6px;
+        }
+
+        /* 10. GRADIENTE 2: Aplicado al botón de envío */
+        .btn-enviar {
+            background: linear-gradient(to right, var(--principal), var(--secundario));
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            border-radius: 4px;
+            font-weight: bold;
+            display: block;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+
+    <header class="header-principal">
+        <img class="logo-img" src="https://www.ucatalunya.edu.co/img/blog/los-mejores-lenguajes-de-programacion-en-el-desarrollo-web-y-su-importancia-en-la-era-digital.jpg" alt="imagen de programacion">
+        
+        <nav class="nav-menu">
+            <ul>
+                <li><a href="index.html">[Inicio]</a></li>
+                <li><a href="info.html">[Info]</a></li>
+                <li><a href="services.html">[Servicios]</a></li>
+                <li><a href="academy.html">[Academia]</a></li>
+                <li><a href="contact.html">[Contacto]</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="main-content">
+        
+        <form action="#" method="POST">
+            <fieldset>
+                <legend><h1>Contacto</h1></legend>
+                
+                <div class="form-row">
+                    <label for="nombre">Nombre:</label>
+                    <input type="text" id="nombre" name="nombre" required>
+                </div>
+
+                <div class="form-row">
+                    <label for="phone">Teléfono:</label>
+                    <input type="tel" id="phone" name="telefono" maxlength="11" required>
+                </div>
+
+                <div class="form-row">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+
+                <div class="form-row">
+                    <label for="mensaje">Mensaje:</label>
+                    <textarea id="mensaje" name="mensaje" rows="4" required></textarea> 
+                </div>
+                
+                <div class="form-image-box">
+                    <img src="https://cdn-www.stelorder.com/wp-content/uploads/2023/08/mantenimiento-preventivo-portada.png" alt="mantenimiento logico" width="300">
+                </div>
+                
+                <button type="submit" class="btn-enviar">Enviar</button>
+            </fieldset>
+        </form>
+    </main>
+
+</body>
+</html>
