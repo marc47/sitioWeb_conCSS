@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SERVICIOS</title>
+    <style>
+        /* 9. VARIABLES CSS (5 declaradas y utilizadas) */
+        :root {
+            --principal: #4287f5;               /* Color Hexadecimal */
+            --secundario: rgb(120, 40, 220);    /* Color RGB */
+            --texto: navy;                      /* Nombre de color clásico */
+            --fondo: #fffbfbfb;
+            --borde: #cccccc;
+        }
+
+        /* 12. ESTILOS BÁSICOS */
+        body {
+            margin: 0;
+            font-family: 'Calibri', sans-serif;
+            color: var(--texto);
+            min-height: 100vh;
+            /* 10. GRADIENTE: Aplicado al fondo del sitio */
+            background: linear-gradient(180deg, #87c7e0 0%, var(--fondo) 100%) no-repeat center center fixed;
+        }
+
+        /* Estilos generales de texto y alineación */
+        h1, h2, h3 {
+            text-align: center;
+        }
+
+        p {
+            font-size: 1.2rem;
+            line-height: 1.5;
+        }
+
+        /* 10. GRADIENTE 2: Aplicado al Encabezado principal */
+        .header-principal {
+            background: linear-gradient(to right, #87c7e0, var(--principal));
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        .logo-img {
+            width: 150px;
+            height: auto;
+            display: block;
+            margin: 0 auto 15px auto;
+        }
+
+        /* Menú de navegación usando listas */
+        .nav-menu ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .nav-menu a {
+            color: var(--texto);
+            text-decoration: none;
+            font-size: 1.3rem;
+            font-weight: bold;
+        }
+
+        /* 2. Banner Principal */
+        .banner {
+            text-align: center;
+            padding: 30px 20px;
+            background-color: rgba(255, 255, 255, 0.4);
+            margin-bottom: 20px;
+        }
+
+        .banner-img {
+            width: 100%;
+            max-width: 500px;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        /* Diseño de rejilla/columnas principal */
+        .main-layout {
+            display: flex;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+            gap: 30px;
+        }
+
+        .content-area {
+            flex: 1;
+        }
+
+        .sidebar-area {
+            width: 280px;
+            background-color: rgba(255, 255, 255, 0.5);
+            padding: 15px;
+            border-radius: 8px;
+            border: 1px solid var(--borde);
+        }
+
+        /* 3. Secciones semánticas */
+        .section-box {
+            margin-bottom: 30px;
+            background-color: rgba(255, 255, 255, 0.3);
+            padding: 20px;
+            border-radius: 8px;
+        }
+
+        /* 5. Estilos de la Tabla (5 columnas x 6 filas de contenido) */
+        .tabla-servicios {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+            background-color: white;
+        }
+
+        .tabla-servicios th, .tabla-servicios td {
+            border: 1px solid var(--borde);
+            padding: 10px;
+            text-align: left;
+            font-size: 1rem;
+        }
+
+        .tabla-servicios th {
+            background-color: var(--principal);
+            color: white;
+        }
+
+        /* 6. Galería de Imágenes (Mínimo 6) */
+        .galeria-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .galeria-grid img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 6px;
+            border: 1px solid var(--borde);
+        }
+
+        /* 7. Formulario */
+        form {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            border: 1px solid var(--borde);
+        }
+
+        fieldset {
+            border: 2px solid var(--principal);
+            border-radius: 6px;
+            padding: 15px;
+        }
+
+        .form-row {
+            margin-bottom: 15px;
+        }
+
+        .form-row label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .form-row input, .form-row select, .form-row textarea {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid var(--borde);
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        .radio-checkbox-group {
+            margin-bottom: 15px;
+        }
+
+        .radio-checkbox-group label {
+            margin-right: 15px;
+        }
+
+        .btn-enviar {
+            background-color: var(--principal);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1rem;
+            cursor: pointer;
+            border-radius: 4px;
+            font-weight: bold;
+        }
+
+        .btn-limpiar {
+            background-color: red;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1rem;
+            cursor: pointer;
+            border-radius: 4px;
+            font-weight: bold;
+            margin-left: 10px;
+        }
+
+        /* 13. Pie de página */
+        .footer-sitio {
+            text-align: center;
+            padding: 30px;
+            margin-top: 45px;
+            background-color: rgba(0, 0, 128, 0.05);
+        }
+
+        .footer-socials img {
+            width: 32px;
+            height: 32px;
+            margin: 10px 5px 0 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <header class="header-principal">
+        <img class="logo-img" src="https://images.unsplash.com/photo-1515879218367-8466d910aaa4?w=500" alt="Imagen de programación">
+        <nav class="nav-menu">
+            <ul>
+                <li><a href="index.html">[Inicio]</a></li>
+                <li><a href="productos.html">[Productos]</a></li>
+                <li><a href="services.html">[Servicios]</a></li>
+                <li><a href="contact.html">[Contacto]</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="banner">
+        <img class="banner-img" src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800" alt="Banner Tecnológico">
+        <h1>Innovación y Respaldo Digital</h1>
+        <p>Soluciones efectivas para optimizar, reparar y potenciar toda tu infraestructura informática.</p>
+    </div>
+
+    <div class="main-layout">
+        
+        <main class="content-area">
+            
+            <section class="section-box">
+                <h1>SERVICIOS</h1>
+                <p>Como podemos observar en las figuras, estos son los tipos de servicios que prestamos. Muy pronto estaremos compartiendo más información acerca de nuestros servicios.</p>
+            </section>
+
+            <section class="section-box">
+                <h2>Catálogo de Tarifas y Tiempos</h2>
+                <table class="tabla-servicios">
+                    <thead>
+                        <tr>
+                            <th>Código</th>
+                            <th>Descripción del Servicio</th>
+                            <th>Especialidad</th>
+                            <th>Plazo Máximo</th>
+                            <th>Costo Base</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>TECH-01</td>
+                            <td>Mantenimiento Lógico y Optimización</td>
+                            <td>Software</td>
+                            <td>24 Horas</td>
+                            <td>$30 USD</td>
+                        </tr>
+                        <tr>
+                            <td>TECH-02</td>
+                            <td>Limpieza Física e Interna de Componentes</td>
+                            <td>Hardware</td>
+                            <td>12 Horas</td>
+                            <td>$45 USD</td>
+                        </tr>
+                        <tr>
+                            <td>TECH-03</td>
+                            <td>Desarrollo de Páginas Web Corporativas</td>
+                            <td>Programación</td>
+                            <td>2 Semanas</td>
+                            <td>$150 USD</td>
+                        </tr>
+                        <tr>
+                            <td>TECH-04</td>
+                            <td>Recuperación de Archivos Dañados</td>
+                            <td>Datos</td>
+                            <td>48 Horas</td>
+                            <td>$80 USD</td>
+                        </tr>
+                        <tr>
+                            <td>TECH-05</td>
+                            <td>Asistencia Remota Inmediata</td>
+                            <td>Soporte</td>
+                            <td>2 Horas</td>
+                            <td>$25 USD</td>
+                        </tr>
+                        <tr>
+                            <td>TECH-06</td>
+                            <td>Instalación de Redes Locales (LAN)</td>
+                            <td>Infraestructura</td>
+                            <td>3 Días</td>
+                            <td>$110 USD</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <section class="section-box">
+                <h2>¿Cómo trabajamos?</h2>
+                <p>Seguimos una metodología estricta para garantizar que tu software y hardware queden en perfectas condiciones:</p>
+                <ol>
+                    <li>Recepción del dispositivo o enlace remoto inicial.</li>
+                    <li>Diagnóstico profundo del sistema operativo y piezas físicas.</li>
+                    <li>Aprobación del presupuesto por parte del cliente.</li>
+                    <li>Ejecución del servicio técnico especializado.</li>
+                    <li>Pruebas de control de calidad finales.</li>
+                    <li>Entrega del equipo con su respectiva póliza de garantía.</li>
+                </ol>
+            </section>
+
+            <section class="section-box">
+                <h2>Nuestra Galería de Trabajo</h2>
+                <div class="galeria-grid">
+                    <img src="https://images.unsplash.com/photo-1515879218367-8466d910aaa4?w=400" alt="Desarrollo">
+                    <img src="https://images.unsplash.com/photo-1563986768609-322da13575f3?w=400" alt="Servidores">
+                    <img src="https://images.unsplash.com/photo-1542831371-29b0f74f9713?w=400" alt="Código HTML">
+                    <img src="https://images.unsplash.com/photo-1588508065123-287b28e013da?w=400" alt="Mantenimiento">
+                    <img src="https://images.unsplash.com/photo-1531403009284-440f080d1e12?w=400" alt="UI/UX Design">
+                    <img src="https://images.unsplash.com/photo-1600132806370-bf17e65e942f?w=400" alt="Computadoras">
+                </div>
+            </section>
+
+            <section class="section-box">
+                <form action="#" method="POST">
+                    <fieldset>
+                        <legend><h2>Agendar una Revisión Técnica</h2></legend>
+
+                        <div class="form-row">
+                            <label for="nombre">Nombre:</label>
+                            <input type="text" id="nombre" name="nombre" minlength="3" maxlength="20" required>
+                        </div>
+
+                        <div class="form-row">
+                            <label for="apellido">Apellido:</label>
+                            <input type="text" id="apellido" name="apellido" minlength="3" maxlength="20" required>
+                        </div>
+
+                        <div class="form-row">
+                            <label for="correo">Correo Electrónico:</label>
+                            <input type="email" id="correo" name="correo" required>
+                        </div>
+
+                        <div class="form-row">
+                            <label for="telefono">Teléfono:</label>
+                            <input type="tel" id="telefono" name="telefono" minlength="8" maxlength="11" required>
+                        </div>
+
+                        <div class="form-row">
+                            <label for="fecha">Fecha del Problema:</label>
+                            <input type="date" id="fecha" name="fecha" required>
+                        </div>
+
+                        <div class="form-row">
+                            <label for="categoria">Lista Desplegable (Categoría):</label>
+                            <select id="categoria" name="categoria">
+                                <option value="hardware">Reparación de Hardware</option>
+                                <option value="software">Mantenimiento Lógico</option>
+                                <option value="web">Diseño Web</option>
+                            </select>
+                        </div>
+
+                        <div class="radio-checkbox-group">
+                            <label><b>Botones de Radio (¿Equipo enciende?):</b></label><br>
+                            <input type="radio" id="si" name="enciende" value="si" checked>
+                            <label for="si">Sí enciende</label>
+                            <input type="radio" id="no" name="enciende" value="no">
+                            <label for="no">No enciende</label>
+                        </div>
+
+                        <div class="radio-checkbox-group">
+                            <label><b>Casillas de Verificación:</b></label><br>
+                            <input type="checkbox" id="respaldo" name="respaldo" required>
+                            <label for="respaldo">Tengo un respaldo de mis datos importantes</label>
+                        </div>
+
+                        <div class="form-row">
+                            <label for="detalles">Área de Texto (Detalles del fallo):</label>
+                            <textarea id="detalles" name="detalles" rows="4" placeholder="Explica brevemente los fallos lógicos o físicos observados..." required></textarea>
+                        </div>
+
+                        <div style="text-align: center; margin-top: 15px;">
+                            <button type="submit" class="btn-enviar">Enviar Solicitud</button>
+                            <button type="reset" class="btn-limpiar">Limpiar Todo</button>
+                        </div>
+                    </fieldset>
+                </form>
+            </section>
+
+        </main>
+
+        <aside class="sidebar-area">
+            <h3>Asistencia Remota</h3>
+            <img src="https://images.unsplash.com/photo-1563986768609-322da13575f3?w=300" alt="Mantenimiento Lógico" style="width: 100%; height: auto; border-radius: 4px;">
+            
+            <h3>Categorías (Lista Desordenada)</h3>
+            <ul>
+                <li><a href="#">Programación</a></li>  
+                <li><a href="#">Diseño Web</a></li>
+                <li><a href="#">Reparación de Hardware</a></li>
+                <li><a href="#">Mantenimiento Lógico y Físico</a></li>
+                <li><a href="#">Recuperación de datos</a></li>
+            </ul>
+        </aside>
+
+    </div>
+
+    <footer class="footer-sitio">
+        <hr>
+        <p>Contacto corporativo: soporte@tuempresa.com | Teléfono de guardia: +502 4433-2211</p>
+        <div>
+            <img src="https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?w=50" alt="Facebook">
+            <img src="https://images.unsplash.com/photo-1611605698335-8b15d27e03f9?w=50" alt="Twitter X">
+        </div>
+        <p>&copy; 2026 Tu Empresa de Servicios Tecnológicos. Todos los derechos reservados. Proyecto de HTML y CSS.</p>
+    </footer>
+
+</body>
+</html>
